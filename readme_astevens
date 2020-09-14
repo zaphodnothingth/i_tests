@@ -1,0 +1,16 @@
+o Describe your model and why did you choose this model over other types of models?
+	autosklearn took care of selecting the model - as i understand SC's product - it'll have better results with similar methodology
+o Describe any other models you have tried and why do you think this model preforms better?
+	I haven't had much time to build optimized, varied models, but autosklearn takes care of a first pass at that. trees/rf is always a safe choice
+o How did you handle missing data?
+	drop it. for this simple classification, there was enough data to allow a blunt approach
+	tested filling means for numericals & adding an 'unknown' class for categoricals, but this decreased performance
+
+	with more time, i would drop correlated columns to test for accuracy increase, & test filling some columns with empties and dropping others
+o How did you handle categorical (string) data?
+	pd dummies took care of 1hot encoding it
+o How did you handle unbalanced data?
+	let autosklearn take care of weighting
+o How did you test your model?
+	sklearn train_test_split, used F1 score since this is imbalanced binary classification
+	with more time, i would optimize to minimize false negatives. an incorrect yes is less important than an incorrect no
